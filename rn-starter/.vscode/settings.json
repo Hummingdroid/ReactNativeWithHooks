@@ -1,0 +1,5 @@
+{
+    "git.ignoreLimitWarning": true,
+    "typescript.reportStyleChecksAsWarnings": false,
+    "eslint.quiet": true
+}
