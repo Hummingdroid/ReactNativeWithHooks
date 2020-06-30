@@ -17,7 +17,7 @@ const HomeScreen = ({ navigation }) => {
      />
 
      <Button
-     onPress={()=> navigation.navigate("List")}
+       onPress={()=> navigation.navigate("List")}
      title="List Button"
      />
 
