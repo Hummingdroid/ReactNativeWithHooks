@@ -1,28 +1,29 @@
-import React, {useState} from 'react'; // useState is a hook, which is a function that adds functionality to a function component. ie: counter
+import React, { useState } from 'react';
 import { View, Text, StyleSheet, Button } from 'react-native';
 
-
 const CounterScreen = () => {
-    const [count, setCounter] = useState(0);// arg is the default value
-    return (
-        <View>
-    	
-    	<Button title="Increase" onPress={()=>{ 
-    		// This is bad, never modify state variable directly.
-    		//count++;
-    		setCounter(count + 1);
-    	}}/>
+  const [counter, setCounter] = useState(0);
 
-    	<Button title="Decrease" onPress={()=> {
-    		// This is bad, never modify state variable directly.
-    		//count--;
-    		setCounter(count - 1);
-    	}}/>
-
-    	<Text>Count is: {count}</Text>
-
-	</View>
-    )
+  return (
+    <View>
+      <Button
+        title="Increase"
+        onPress={() => {
+          // Don't do this!
+          // counter++;
+          // counter = counter + 1;
+          setCounter(counter + 1);
+        }}
+      />
+      <Button
+        title="Decrease"
+        onPress={() => {
+          setCounter(counter - 1);
+        }}
+      />
+      <Text>Current Count: {counter}</Text>
+    </View>
+  );
 };
 
 const styles = StyleSheet.create({});

@@ -1,25 +1,28 @@
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
-import HomeScreen from "./src/screens/HomeScreen";
-import RandomScreen from './src/screens/RandomScreen';
+
+import HomeScreen from './src/screens/HomeScreen';
+import ComponentsScreen from './src/screens/ComponentsScreen';
 import ListScreen from './src/screens/ListScreen';
 import ImageScreen from './src/screens/ImageScreen';
 import CounterScreen from './src/screens/CounterScreen';
+import ColorScreen from './src/screens/ColorScreen';
 
-// Stack Navigator() shows what content goes on the screen at any given time.
-const navigator = createStackNavigator({
+const navigator = createStackNavigator(
+  {
     Home: HomeScreen,
-    RandomScreen: RandomScreen,
+    Components: ComponentsScreen,
     List: ListScreen,
-    ImageView: ImageScreen,
-    Counter: CounterScreen
-}, {
-    // initalRouteName is the first component to display. It will also throw into the first argument
-    // of all screens the 'props' so it can be used as the first argument.
-    initialRouteName: "Home",
+    Image: ImageScreen,
+    Counter: CounterScreen,
+    Color: ColorScreen,
+  },
+  {
+    initialRouteName: 'Home',
     defaultNavigationOptions: {
-        title: "App"
-    }
-});
+      title: 'App',
+    },
+  }
+);
 
 export default createAppContainer(navigator);

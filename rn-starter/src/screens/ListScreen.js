@@ -1,44 +1,38 @@
 import React from 'react';
 import { View, Text, StyleSheet, FlatList } from 'react-native';
 
-// Create a List that is taken in as first argument on FlatList, second Argument is renderItem
-// Which uses an anonymous funtion where 'item', is the current item, then iterates the arraylist
-// and renders the list on the screen
 const ListScreen = () => {
-        const friends = [
-            { name: 'Juan Valedz', age: 22 },
-            { name: ' Gomez Popesons', age: 32 },
-            { name: " Jay Green", age: 28 },
-            { name: " Jerry Cantrel", age: 68 },
-            { name: " Wilson Phillips", age: 22 },
-            { name: " Nacho Libre", age: 58 },
-            { name: " JAck Ryan", age: 38 },
-            { name: " JAck Byan", age: 30 },
-            { name: " JAck Jill", age: 18 },
+  const friends = [
+    { name: 'Friend #1', age: 20 },
+    { name: 'Friend #2', age: 21 },
+    { name: 'Friend #3', age: 22 },
+    { name: 'Friend #4', age: 23 },
+    { name: 'Friend #5', age: 24 },
+    { name: 'Friend #6', age: 25 },
+    { name: 'Friend #7', age: 26 },
+    { name: 'Friend #8', age: 27 },
+    { name: 'Friend #9', age: 28 }
+  ];
 
-        ];
-
+  return (
+    <FlatList
+      keyExtractor={friend => friend.name}
+      data={friends}
+      renderItem={({ item }) => {
         return (
-                <FlatList keyExtractor = {(key) => key.name} 
-                              data = {friends} 
-                        renderItem = {({item}) => {
-                return <Text style={styles.textMargins}>Name: {item.name} AGE: {item.age}</Text>}
-            } /> 
-                );
+          <Text style={styles.textStyle}>
+            {item.name} - Age {item.age}
+          </Text>
+        );
+      }}
+    />
+  );
 };
 
-// Style sheet created to style elements
-// StyleShee.create({styleItem_1, styleItem_2, etc}) is used to create the styles to reference. Like CSS
 const styles = StyleSheet.create({
-    textStyle : {
-    fontSize : 50
-},
-textColor :{
-color: '#F44336'
-},
-textMargins : {
-    marginVertical : 50
-}
+  textStyle: {
+    marginVertical: 50
+  }
 });
 
 export default ListScreen;
